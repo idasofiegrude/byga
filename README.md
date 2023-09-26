@@ -2,7 +2,7 @@
 # litt-yr
 
 
-Eg like 🇮🇹,🏝,☀
+Eg like 🇮🇹,🏝,☀ derfor lage eg denna "siå"
 
 
 Mitt første repository på GitHub for mitt første prosjekt. 
