@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather App</title>
+</head>
+<body>
+    <h1>Weather App</h1>
+
+    <input type="text" id="city-input" placeholder="Enter city name">
+    <button onclick="fetchWeather()">Get Weather</button>
+
+    <div id="weather-data"></div>
+
+    <script>
+        function fetchWeather() {
+            const cityName = document.getElementById('city-input').value;
+            fetch(`http://127.0.0.1:5000/by/${cityName}`)
+                .then(response => response.json())
+                .then(data => {
+                    const weatherDiv = document.getElementById('weather-data');
+                    weatherDiv.innerHTML = `Temperature: ${data.temp} Sky: ${data.sky} Humidity: ${data.humidity}`;
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
