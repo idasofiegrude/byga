@@ -2,7 +2,7 @@ import requests
 from classes import LocationWeather
 
 def translate_vc_condition_to_sky_string(visual_crossing_type):
-    snowGroup = ["type_9","type_40", "type_1", "type_10", "type_11", "type_12", "type_13", "type_14", "type_15", "type_16", "type_17", "type_22","type_23"
+    snowGroup = ["type_9","type_40", "type_1", "type_10", "type_11", "type_12", "type_13", "type_14", "type_15", "type_16", "type_17", "type_22","type_23",
                  "type_31", "type_32", "type_33", "type_34", "type_35"]
     
     sunGroup = ["type_43"]
@@ -42,8 +42,6 @@ def get_weather_from_visual_crossing(city:str, fra_dato:str, til_dato:str )->[Lo
     api_key = "WR35N39U436CS7KXXGWCQ8CRP"
     response = requests.get(f"https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/{city}/{fra_dato}/{til_dato}?unitGroup=metric&key={api_key}&lang=id")
     
-    print(response.text)
-
     data = response.json()
 
     dayList = data["days"] #dager hentet fra apiet 
