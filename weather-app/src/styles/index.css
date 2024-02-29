@@ -1,17 +1,16 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
 
 body {
   background-color: #ffffc4;
@@ -21,11 +20,10 @@ body {
   background: rgb(133, 218, 242);
   padding: 10px;
   display: flex;
-  min-width: 250px;
+  width: 45%;
   border-radius: 10px;
   color: white;
 }
-
 
 .weather-icon {
   font-size: 75px;
@@ -47,7 +45,6 @@ body {
   font-size: 30px;
   font-weight: bold;
 }
-
 
 .container {
   width: 100%;
@@ -71,12 +68,9 @@ body {
   padding: 20px;
   border: none;
   border-radius: 10px;
-  font-family: 'Montserrat', sans-serif;
-font-family: 'Poppins', sans-serif;
-font-family: 'Roboto', sans-serif;
-    
-
-
+  font-family: "Montserrat", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .search-button {
@@ -87,7 +81,6 @@ font-family: 'Roboto', sans-serif;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  
 }
 
 .search-button:hover {
@@ -97,4 +90,8 @@ font-family: 'Roboto', sans-serif;
 .card-container {
   display: flex;
   justify-content: center;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
