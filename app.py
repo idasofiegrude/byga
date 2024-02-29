@@ -1,7 +1,5 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
-from classes import LocationWeather
-from openweather import get_weather_from_open_weather
 from visualcrossingapi import get_weather_from_visual_crossing
 from datetime import date
 
@@ -24,9 +22,6 @@ def get_daily_weather_list(city, fra_dato, til_dato):
         dict_list.append(dict)
 
     return jsonify(dict_list)
-
-
-
 
 
 
