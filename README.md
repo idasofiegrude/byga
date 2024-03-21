@@ -2,5 +2,5 @@
 # litt-yr
 
 
-Eg like 🇮🇹,🏝,☀ derfor lage eg denna "siå"
+Eg like 🇮🇹,🏝,☀ derfor trenge eg denna "siå"
 
