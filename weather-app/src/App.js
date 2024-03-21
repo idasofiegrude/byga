@@ -26,6 +26,7 @@ function App() {
           />
         ))}
       </div>
+      <h2 class="explaination-card">Hva kan du bruke Byga til?</h2>
     </div>
   );
 }

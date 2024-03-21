@@ -28,6 +28,11 @@ body {
   color: rgb(46, 125, 46);
   size: 60px;
 }
+
+.explaination-card {
+  color: rgb(46, 125, 46);
+  size: 35px;
+}
 .bold {
   font-weight: bolder;
 }
