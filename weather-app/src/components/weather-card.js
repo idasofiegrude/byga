@@ -15,11 +15,11 @@ function WeatherCard({ city, temp, weatherId, date }) {
   if (weatherId === "clear" || weatherId === "sun") {
     iconComponent = <Sun size={100} color={"yellow"} />;
   } else if (weatherId === "cloudy") {
-    iconComponent = <Cloud size={100} color={"#f5f5f5"} />;
+    iconComponent = <Cloud size={100} color={"white"} />;
   } else if (weatherId === "snow") {
     iconComponent = <Snowflake size={100} color="white" />;
   } else if (weatherId === "rain") {
-    iconComponent = <CloudDrizzle size={100} color="lightblue" />;
+    iconComponent = <CloudDrizzle size={100} color="darkgrey" />;
   } else if (weatherId === "sun and cloud") {
     iconComponent = <CloudSun size={100} color="white" />;
   } else {
