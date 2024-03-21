@@ -28,7 +28,7 @@ function App() {
       </div>
       <h2 class="explaination-card">
         Legg inn din fremtidige reiserute, både by og datoen du befinner deg der
-        så får du raskt oversikt over været som venter deg på veien.?
+        så får du raskt oversikt over været som venter deg på veien.
       </h2>
     </div>
   );
