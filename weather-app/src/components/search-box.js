@@ -1,13 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-// SearchBox.js
 function SearchBox({ onWeatherData }) {
   const [city, setCity] = useState("");
   const [fromDate, setFromDate] = useState("");
   const [toDate, setToDate] = useState("");
 
+  useEffect(() => {
+    // Setter fra- og tildatoer ved første render
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+
+    setFromDate(today.toISOString().split("T")[0]);
+    setToDate(tomorrow.toISOString().split("T")[0]);
+  }, []);
+
   function handleInputChange(event) {
-    console.log(event.target.value);
     setCity(event.target.value);
   }
 
@@ -26,27 +34,37 @@ function SearchBox({ onWeatherData }) {
 
   return (
     <div className="search-box">
+      <label htmlFor="city-input" className="input-label">
+        By:
+      </label>
       <input
+        id="city-input"
         className="search-input"
-        placeholder="by"
+        placeholder="Skriv inn by"
         type="text"
         value={city}
         onChange={handleInputChange}
         onKeyDown={handleKeyDown}
       />
+      <label htmlFor="from-date" className="input-label">
+        Fra dato:
+      </label>
       <input
+        id="from-date"
         className="date-input"
         type="date"
         value={fromDate}
         onChange={(e) => setFromDate(e.target.value)}
-        placeholder="Fra dato"
       />
+      <label htmlFor="to-date" className="input-label">
+        Til dato:
+      </label>
       <input
+        id="to-date"
         className="date-input"
         type="date"
         value={toDate}
         onChange={(e) => setToDate(e.target.value)}
-        placeholder="Til dato"
       />
 
       <button className="search-button" onClick={getWeatherFromApi}>
