@@ -26,10 +26,14 @@ function App() {
           />
         ))}
       </div>
-      <h2 class="explaination-card">
-        Legg inn din fremtidige reiserute, både by og datoen du befinner deg der
-        så får du raskt oversikt over været som venter deg på veien.
-      </h2>
+      <div class="explaination-card">
+        <h3>
+          Legg inn din fremtidige reiserute 👆 By for by og datoen du befinner
+          deg der, så får du raskt oversikt over været som venter deg. God tur
+          🥰
+        </h3>
+        <h2></h2>
+      </div>
     </div>
   );
 }
