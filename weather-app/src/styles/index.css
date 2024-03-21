@@ -32,6 +32,13 @@ body {
 .explaination-card {
   color: rgb(46, 125, 46);
   size: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px;
+  display: flex;
+  width: 45%;
+  border-radius: 10px;
 }
 .bold {
   font-weight: bolder;
