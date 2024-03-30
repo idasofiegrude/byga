@@ -1,7 +1,6 @@
 import React from "react";
 import {
   Sun,
-  CloudLightning,
   CloudSun,
   Snowflake,
   Cloud,

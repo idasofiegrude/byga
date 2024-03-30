@@ -32,7 +32,6 @@ function App() {
           deg der, så får du raskt oversikt over været som venter deg. God tur
           🥰
         </h3>
-        <h2></h2>
       </div>
     </div>
   );
