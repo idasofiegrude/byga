@@ -26,7 +26,8 @@ body {
 }
 .title {
   color: rgb(46, 125, 46);
-  size: 60px;
+  font-size: 50px;
+  padding: 30px;
 }
 
 .explaination-card {
