@@ -5,54 +5,58 @@ import {
   Snowflake,
   Cloud,
   CloudDrizzle,
-  Dot,
+  CloudRain,
+  CloudLightning,
 } from "lucide-react";
 
-function WeatherCard({ city, temp, weatherId, date }) {
-  let iconComponent;
+const weatherConfig = {
+  clear: { icon: Sun, color: "#fbbf24", bg: "rgba(251,191,36,0.15)" },
+  sun: { icon: Sun, color: "#fbbf24", bg: "rgba(251,191,36,0.15)" },
+  cloudy: { icon: Cloud, color: "#cbd5e1", bg: "rgba(203,213,225,0.15)" },
+  snow: { icon: Snowflake, color: "#bae6fd", bg: "rgba(186,230,253,0.15)" },
+  rain: { icon: CloudRain, color: "#93c5fd", bg: "rgba(147,197,253,0.15)" },
+  "sun and cloud": { icon: CloudSun, color: "#fcd34d", bg: "rgba(252,211,77,0.15)" },
+  drizzle: { icon: CloudDrizzle, color: "#93c5fd", bg: "rgba(147,197,253,0.15)" },
+  "lightning and thunder": { icon: CloudLightning, color: "#e879f9", bg: "rgba(232,121,249,0.15)" },
+};
 
-  if (weatherId === "clear" || weatherId === "sun") {
-    iconComponent = <Sun size={100} color={"yellow"} />;
-  } else if (weatherId === "cloudy") {
-    iconComponent = <Cloud size={100} color={"white"} />;
-  } else if (weatherId === "snow") {
-    iconComponent = <Snowflake size={100} color="white" />;
-  } else if (weatherId === "rain") {
-    iconComponent = <CloudDrizzle size={100} color="darkgrey" />;
-  } else if (weatherId === "sun and cloud") {
-    iconComponent = <CloudSun size={100} color="white" />;
-  } else {
-    iconComponent = <Dot size={100} color="yellow" />;
-  }
+function WeatherCard({ city, temp, weatherId, date, compact }) {
+  const config = weatherConfig[weatherId] ?? { icon: Cloud, color: "#cbd5e1", bg: "rgba(203,213,225,0.15)" };
+  const IconComponent = config.icon;
 
-  // Anta at `date` er i formatet "YYYY-MM-DD"
   const dateObject = new Date(date);
-  const dayOfWeekNumber = dateObject.getDay();
+  const days = ["Søndag", "Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag"];
+  const dayOfWeek = days[dateObject.getDay()];
+  const formattedDate = dateObject.toLocaleDateString("no-NO", {
+    day: "numeric",
+    month: "short",
+  });
 
-  const days = [
-    "Søndag",
-    "Mandag",
-    "Tirsdag",
-    "Onsdag",
-    "Torsdag",
-    "Fredag",
-    "Lørdag",
-  ];
-  const dayOfWeek = days[dayOfWeekNumber];
+  if (compact) {
+    return (
+      <div className="weather-card-compact">
+        <div className="wcc-icon-wrapper" style={{ background: config.bg }}>
+          <IconComponent size={22} color={config.color} strokeWidth={1.5} />
+        </div>
+        <div className="wcc-day">{dayOfWeek.slice(0, 3)}</div>
+        <div className="wcc-date">{formattedDate}</div>
+        <div className="wcc-temp">{temp}°</div>
+      </div>
+    );
+  }
 
   return (
     <div className="weather-card">
-      <div className="weather-icon">{iconComponent}</div>
+      <div className="weather-icon-wrapper" style={{ background: config.bg }}>
+        <IconComponent size={36} color={config.color} strokeWidth={1.5} />
+      </div>
       <div className="weather-info">
-        <div className="date">
-          <span className="bold">{dayOfWeek}</span>{" "}
-          {dateObject.toLocaleDateString()}
+        <div className="weather-city">{city}</div>
+        <div className="weather-date">
+          {dayOfWeek} · {formattedDate}
         </div>
-        <div className="city">{city}</div>
       </div>
-      <div>
-        <div className="temp">{temp}°C</div>
-      </div>
+      <div className="weather-temp">{temp}°</div>
     </div>
   );
 }

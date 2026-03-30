@@ -1,38 +1,52 @@
-// App.js
 import React, { useState } from "react";
 import SearchBox from "./components/search-box";
 import WeatherCard from "./components/weather-card";
 
 function App() {
-  const [weatherDataList, setWeatherDataList] = useState([]);
+  const [trips, setTrips] = useState([]);
 
-  function handleWeatherData(data) {
-    console.log(data[0]);
-    setWeatherDataList((oldList) => [...oldList, ...data]);
+  function handleTripData(trip) {
+    setTrips(prev => [...prev, trip]);
   }
+
   return (
     <div className="app">
-      <h1 class="title">Byga</h1>
-      <SearchBox onWeatherData={handleWeatherData} />
-      <div className="card-container">
-        {weatherDataList.map((weatherData, index) => (
-          <WeatherCard
-            key={index}
-            city={weatherData.cityname}
-            temp={weatherData.temp}
-            weatherId={weatherData.sky}
-            country={weatherData.country}
-            date={weatherData.date}
-          />
-        ))}
+      <h1 className="title">Byga</h1>
+      <div className="explanation-card">
+        Legg inn din fremtidige reiserute — by for by og datoen du befinner deg
+        der, så får du raskt oversikt over været som venter deg. God tur 🥰
       </div>
-      <div class="explaination-card">
-        <h3>
-          Legg inn din fremtidige reiserute 👆 By for by og datoen du befinner
-          deg der, så får du raskt oversikt over været som venter deg. God tur
-          🥰
-        </h3>
-      </div>
+      <SearchBox onTripData={handleTripData} />
+      {trips.length > 0 && (
+        <div className="timeline">
+          {trips.map((trip, i) => (
+            <div className="timeline-stop" key={i}>
+              <div className="timeline-spine">
+                <div className="timeline-dot" />
+                {i < trips.length - 1 && <div className="timeline-connector" />}
+              </div>
+              <div className="timeline-content">
+                <div className="timeline-header">
+                  <span className="timeline-city">{trip.city}</span>
+                  <span className="timeline-range">{trip.fromDate} → {trip.toDate}</span>
+                </div>
+                <div className="timeline-cards">
+                  {trip.days.map((day, j) => (
+                    <WeatherCard
+                      key={j}
+                      compact
+                      city={day.cityname}
+                      temp={day.temp}
+                      weatherId={day.sky}
+                      date={day.date}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

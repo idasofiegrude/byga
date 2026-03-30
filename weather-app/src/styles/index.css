@@ -5,15 +5,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #93bf955e;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
-
-body {
-  background-color: #93bf955e;
 }
 
 .app {
@@ -24,56 +21,73 @@ body {
   align-items: center;
   margin-bottom: 50px;
 }
+
 .title {
   color: rgb(46, 125, 46);
   font-size: 50px;
   padding: 30px;
+  margin: 0;
 }
 
-.explaination-card {
-  color: rgb(46, 125, 46);
-  size: 30px;
-  padding: 16px;
-  width: 50%;
-  background-color: rgb(250, 250, 231);
-  border-radius: 7px;
-  line-height: 170%;
+.explanation-card {
+  color: #166534;
+  font-size: 15px;
+  padding: 14px 20px;
+  width: 380px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  line-height: 1.6;
+  border: 1px solid rgba(22, 101, 52, 0.15);
+  box-sizing: border-box;
 }
-.bold {
-  font-weight: bolder;
-}
+
 .weather-card {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  background: rgb(133, 218, 242);
-  padding: 10px;
-  display: flex;
-  width: 45%;
-  border-radius: 10px;
+  gap: 16px;
+  background: linear-gradient(135deg, #14532d, #166534);
+  padding: 18px 24px;
+  width: 380px;
+  border-radius: 16px;
   color: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
 }
 
-.weather-icon {
-  font-size: 75px;
+.weather-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  flex-shrink: 0;
 }
 
 .weather-info {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin-left: 10px;
+  gap: 4px;
+  flex: 1;
 }
 
-.city {
-  font-size: 24px;
-  font-weight: bold;
+.weather-city {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
 }
 
-.temp {
-  font-size: 25px;
-  font-weight: bold;
-  margin-left: auto;
+.weather-date {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 400;
+}
+
+.weather-temp {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  flex-shrink: 0;
 }
 
 .container {
@@ -87,57 +101,277 @@ body {
 }
 
 .search-box {
-  width: 50%;
-  margin: 40px auto;
+  width: 380px;
+  margin: 24px auto;
   display: flex;
-  justify-content: center;
-  gap: 11px;
-
   flex-direction: column;
-  align-items: center;
+  gap: 10px;
 }
 
-.search-input {
-  padding: 20px;
-  border: none;
-  border-radius: 10px 0 0 10px;
-  font-family: "Montserrat", sans-serif;
-  font-family: "Poppins", sans-serif;
-  font-family: "Roboto", sans-serif;
-  max-width: 100%;
-  width: 200px;
-  border-radius: 0;
+.input-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #166534;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 2px;
 }
 
+.search-input,
 .date-input {
-  width: 200px;
-  padding: 20px;
-  border: none;
-  max-width: 100%;
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid rgba(22, 101, 52, 0.2);
+  border-radius: 10px;
+  font-size: 15px;
+  background: rgba(255, 255, 255, 0.8);
+  color: #14532d;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.search-input:focus,
+.date-input:focus {
+  border-color: #16a34a;
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.15);
 }
 
 .search-button {
-  padding: 10px;
-  background-color: #9ad09c;
+  margin-top: 4px;
+  padding: 13px;
+  background-color: #166534;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
-  max-width: 100%;
-  width: 180px;
-  margin-top: 20px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: background-color 0.15s;
 }
 
 .search-button:hover {
-  background-color: #45a049;
+  background-color: #14532d;
 }
 
-.card-container {
-  max-width: 1000px;
+/* ── Timeline ───────────────────────────────── */
+
+.timeline {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 860px;
+  padding: 8px 24px 40px;
+  box-sizing: border-box;
+}
+
+.timeline-stop {
+  display: flex;
   gap: 20px;
-  justify-content: center;
+}
+
+.timeline-spine {
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  flex-shrink: 0;
+  padding-top: 4px;
+}
+
+.timeline-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #166534;
+  border: 3px solid white;
+  box-shadow: 0 0 0 2px #166534;
+  flex-shrink: 0;
+}
+
+.timeline-connector {
+  width: 2px;
+  flex: 1;
+  min-height: 24px;
+  background: linear-gradient(to bottom, #166534, #9FCB98);
+  margin: 6px 0;
+}
+
+.timeline-content {
+  flex: 1;
+  padding-bottom: 32px;
+}
+
+.timeline-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.timeline-city {
+  font-size: 18px;
+  font-weight: 700;
+  color: #166534;
+}
+
+.timeline-range {
+  font-size: 13px;
+  color: rgba(22, 101, 52, 0.55);
+}
+
+.timeline-cards {
+  display: flex;
+  gap: 10px;
   flex-wrap: wrap;
+}
+
+/* ── Compact weather card ───────────────────── */
+
+.weather-card-compact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #14532d, #166534);
+  padding: 14px 12px;
+  width: 90px;
+  border-radius: 14px;
+  color: white;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+.wcc-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+}
+
+.wcc-day {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.wcc-date {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.wcc-temp {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+/* ── Autocomplete ───────────────────────────── */
+
+.autocomplete-wrapper {
+  position: relative;
+}
+
+.suggestions-list {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  list-style: none;
+  margin: 0;
+  padding: 6px 0;
+  z-index: 100;
+}
+
+.suggestion-item {
+  padding: 10px 16px;
+  font-size: 14px;
+  color: #14532d;
+  cursor: pointer;
+}
+
+.suggestion-item:hover {
+  background: rgba(22, 101, 52, 0.06);
+}
+
+/* ── Date range picker button ───────────────── */
+
+.date-picker-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.date-range-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid rgba(22, 101, 52, 0.2);
+  border-radius: 10px;
+  font-size: 15px;
+  background: rgba(255, 255, 255, 0.8);
+  color: #14532d;
+  cursor: pointer;
+  text-align: left;
+  box-sizing: border-box;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.date-range-button:hover {
+  border-color: #16a34a;
+}
+
+/* ── react-datepicker overrides ─────────────── */
+
+.react-datepicker {
+  font-family: inherit;
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.react-datepicker__header {
+  background: #166534;
+  border: none;
+  padding-top: 14px;
+}
+
+.react-datepicker__current-month,
+.react-datepicker__day-name {
+  color: white;
+}
+
+.react-datepicker__navigation-icon::before {
+  border-color: white;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--range-start,
+.react-datepicker__day--range-end {
+  background-color: #166534 !important;
+  color: white !important;
+  border-radius: 50%;
+}
+
+.react-datepicker__day--in-range {
+  background-color: rgba(22, 101, 52, 0.15);
+  color: #166534;
+  border-radius: 0;
+}
+
+.react-datepicker__day--in-selecting-range {
+  background-color: rgba(22, 101, 52, 0.1);
+}
+
+.react-datepicker__day:hover {
+  background-color: rgba(22, 101, 52, 0.15);
+  border-radius: 50%;
 }
